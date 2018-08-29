@@ -1,10 +1,10 @@
-const errorsHandler = require('../commons/errors-handler')
+const errorsHandler = require('../commons/errors-handler');
 
 /** */
 const newsletterSubscription = (req, res)  => {
   /* Validations */
-  req.checkBody('email', errorsHandler.getError('BAS001')).notEmpty()
-  req.checkBody('email', errorsHandler.getError('BAS002')).isLength({ max: 50 })
+  req.checkBody('email', errorsHandler.getError('BAS001')).notEmpty();
+  req.checkBody('email', errorsHandler.getError('BAS002')).isLength({ max: 50 });
   
   const errors = req.validationErrors();
   if (errors) {
@@ -13,14 +13,14 @@ const newsletterSubscription = (req, res)  => {
       response.errors.push({
         param: err.param,
         message: err.msg
-      })
+      });
     });
-    res.statusCode = 400
-    return res.json(response)
+    res.statusCode = 400;
+    return res.json(response);
   }
   
-  res.status(200).send({ message: `newsletter subscription successful for email ${req.body.email}` })
-}
+  res.status(200).send({ message: `newsletter subscription successful for email ${req.body.email}` });
+};
 
 
 /** */
@@ -52,4 +52,4 @@ const contactMessage = (req, res)  => {
 module.exports = {
   newsletterSubscription,
   contactMessage
-}
+};

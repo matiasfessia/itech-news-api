@@ -10,7 +10,6 @@
   "author": "Matias Fessia",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-validator": "^4.3.0"
   },
