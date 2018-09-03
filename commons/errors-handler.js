@@ -1,14 +1,14 @@
 'use strict'
 
-var errors = {
+const errors = {
   BAS001: 'This value is required',
   BAS002: 'This value is to long',
-  PRO001: 'The product already exists'
+  BAS003: 'This value must be a valid email',
 }
 
 function getError(code) {
   return {
-    code: 'GEN001',
+    code: code,
     message: errors[code]
   }
 }

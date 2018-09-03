@@ -1,5 +1,3 @@
-const errorsHandler = require('../commons/errors-handler');
-
 /** */
 const getContent = (req, res)  => {
   let code = req.params.code;
@@ -55,6 +53,34 @@ const getContent = (req, res)  => {
         ]
       });
       break;
+    case 'newsletter':
+      res.status(200).send({
+        code,
+        type: 'section',
+        value: [
+          {
+            code: 'newsletter-title',
+            type: 'text',
+            value: `Subscricion a nuestro newsletter`
+          },
+          {
+            code: 'newsletter-text',
+            type: 'text',
+            value: `Mantenete al tanto de lo que sucede dentro de la carrera de desarrollo de software del ITEC.`
+          },
+          {
+            code: 'newsletter-button',
+            type: 'text',
+            value: `Registrarse`
+          },
+          {
+            code: 'newsletter-success-message',
+            type: 'text',
+            value: `Se ha registrado con éxito al newsletter.`
+          },
+        ]
+      });
+      break;
      default:
       res.status(400).send({
         errors: [{
@@ -64,24 +90,6 @@ const getContent = (req, res)  => {
       });
       break;
   }
-  /* Validations */
-  req.checkBody('email', errorsHandler.getError('BAS001')).notEmpty();
-  req.checkBody('email', errorsHandler.getError('BAS002')).isLength({ max: 50 });
-  
-  const errors = req.validationErrors();
-  if (errors) {
-    const response = { errors: [] }
-    errors.forEach(function(err) {
-      response.errors.push({
-        param: err.param,
-        message: err.msg
-      });
-    });
-    res.statusCode = 400;
-    return res.json(response);
-  }
-  
-  res.status(200).send({ message: `newsletter subscription successful for email ${req.body.email}` });
 };
 
 module.exports = {
