@@ -11,7 +11,7 @@ const sleep = milliseconds => {
 
 /** */
 const newsletterSubscription = (req, res)  => {
-  sleep(1500);
+  sleep(3500);
 
   /* Validations */
   req.checkBody('email', errorsHandler.getError('BAS001')).notEmpty();

@@ -36,17 +36,17 @@ const getContent = (req, res)  => {
         type: 'section',
         value: [
           {
-            code: 'about-us-meta-title',
+            code: 'contact-meta-title',
             type: 'meta-title',
-            value: `Acerca de Nosotros - ITECH NEWS`
+            value: `Contáctanos - ITECH NEWS`
           },
           {
-            code: 'about-us-title',
+            code: 'contact-title',
             type: 'text',
             value: `Ponte en contacto con nosotros`
           },
           {
-            code: 'about-us-title',
+            code: 'contact-text',
             type: 'html',
             value: `<p>Completa el siguiente formulario y nos estaremos comunicando a la brevedad</p>`
           }
