@@ -5,6 +5,7 @@ const api = express.Router();
 
 const postCtrl = require('../controllers/post');
 api.get('/posts', postCtrl.getPosts);
+api.get('/posts/:slug', postCtrl.getPost);
 
 const notificationCtrl = require('../controllers/notification');
 api.post('/newsletter-subscription', notificationCtrl.newsletterSubscription);
